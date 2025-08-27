@@ -32,7 +32,7 @@ public class AccountServiceImpl implements AccountService {
     public AccountDto getAccountById(Long id) {
         Account account = accountRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Account does not exist"));
+                .orElseThrow(() -> new AccountException("Account does not exist"));
         return AccountMapper.mapToAccountDto(account);
     }
 
